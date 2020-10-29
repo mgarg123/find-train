@@ -1,0 +1,12 @@
+<main class="live-status-root">
+    <div class="main-root live-status-srch-root">
+        <input [(ngModel)]="trainNo" type="text" name="st-code" id="st-code" value="" placeholder="Enter Train Number" [required]="true" />
+        <select [(ngModel)]="runningDate">
+            <option  value="29">29-10-2020</option>
+            <option  value="28">28-10-2020</option>
+            <option  value="27">27-10-2020</option>
+            <option  value="26">26-10-2020</option>
+        </select>
+        <button (click)="fetchLiveStatus()">Find</button>
+    </div>
+</main>

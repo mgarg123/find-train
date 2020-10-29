@@ -1,0 +1,43 @@
+<main>
+    <div class="main-root l-stat-srch-root">
+        <input [(ngModel)]="stationCode" type="text" name="st-code" id="st-code" value="" placeholder="Enter station code" [required]="true" />
+        <select [(ngModel)]="hours">
+            <option  value="2">2</option>
+            <option value="4">4</option>
+        </select>
+        <button (click)="fetchLiveStation()">Find</button>
+    </div>
+    <div class="l-stat-result">
+        <table>
+            <thead>
+                <tr>
+                    <th>Train No.</th>
+                    <th>Name</th>
+                    <th>Scheduled Arrival</th>
+                    <th>Scheduled Departure</th>
+                    <th>Expected Arrival</th>
+                    <th>Expected Departure</th>
+                    <th>Delay</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of result">
+                    <td>{{res.Number}}</td>
+                    <td>{{res.Name}}</td>
+                    <td>{{res.ScheduleArrival}}</td>
+                    <td>{{res.ScheduleDeparture}}</td>
+                    <td>{{res.ExpectedArrival}}</td>
+                    <td>{{res.ExpectedDeparture}}</td>
+                    <td>{{res.Delay}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="offset!==0" class="pagination">
+        <span (click)="changePage(selectedOffset-1)">prev</span>
+        <span contenteditable="true" [style.color]="(i+1)===selectedOffset?'blue':'rgb(88, 187, 226)'" (click)="changePage(i+1)" *ngFor="let in of counter(offset);let i = index" (keydown.ArrowLeft)="onArrowLeft($event)" (keydown.ArrowRight)="onArrowRight($event)">
+           {{i+1}}
+        </span>
+        <span (click)="changePage(selectedOffset+1)">next</span>
+    </div>
+</main>

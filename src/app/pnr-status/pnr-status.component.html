@@ -1,0 +1,56 @@
+<main>
+    <div class="main-root pnr-info-srch-root">
+        <input [(ngModel)]="pnrNo" type="text" name="st-code" id="st-code" value="" placeholder="Enter PNR No." [required]="true" />
+        <button (click)="fetchPnrInfo()">Find</button>
+    </div>
+    <div class="l-stat-result">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pnr No.</th>
+                        <th>Train No.</th>
+                        <th>Train Name</th>
+                        <th>Chart Prepared</th>
+                        <th>Journey Class</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Journey Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{result.PnrNumber}}</td>
+                        <td>{{result.TrainNumber}}</td>
+                        <td>{{result.TrainName}}</td>
+                        <td>{{result.ChatPrepared}}</td>
+                        <td>{{result.JourneyClass}}</td>
+                        <td>{{result.From}}</td>
+                        <td>{{result.To}}</td>
+                        <td>{{result.JourneyDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Passenger</th>
+                        <th>Booking Status</th>
+                        <th>Current Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let result of result['Passangers']">
+                        <td>{{result.TrainNo}}</td>
+                        <td>{{result.TrainName}}</td>
+                        <td>{{result.Source.Code}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</main>

@@ -1,0 +1,37 @@
+<main>
+    <div class="main-root all-trains-srch-root">
+        <input [(ngModel)]="stationCode" type="text" name="st-code" id="st-code" value="" placeholder="Enter station code" [required]="true" />
+        <button (click)="fetchAllTrains()">Find</button>
+    </div>
+    <div class="l-stat-result">
+        <table>
+            <thead>
+                <tr>
+                    <th>Train No.</th>
+                    <th>Train Name</th>
+                    <th>Source</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of result">
+                    <td>{{res.TrainNo}}</td>
+                    <td>{{res.TrainName}}</td>
+                    <td>{{res.Source}}</td>
+                    <td>{{res.ArrivalTime}}</td>
+                    <td>{{res.DepartureTime}}</td>
+                    <td>{{res.Destination}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="offset!==0" class="pagination">
+        <span [style.pointerEvents]="selectedOffset===1?'none':'all'" (click)="changePage(selectedOffset-1)">prev</span>
+        <span contenteditable="true" [style.color]="(i+1)===selectedOffset?'blue':'rgb(88, 187, 226)'" (click)="changePage(i+1)" *ngFor="let in of [].constructor(offset);let i = index" (keydown.ArrowLeft)="onArrowLeft($event)" (keydown.ArrowRight)="onArrowRight($event)">
+           {{i+1}}
+        </span>
+        <span [style.pointerEvents]="offset===selectedOffset?'none':'all'" (click)="changePage(selectedOffset+1)">next</span>
+    </div>
+</main>

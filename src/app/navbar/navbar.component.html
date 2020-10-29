@@ -1,0 +1,33 @@
+<nav>
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-status')">
+        <mat-icon>train</mat-icon>
+        <div [ngClass]="expandNavClassList">
+            <span>Live Status</span>
+        </div>
+    </div>
+
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('pnr-status')">
+        <mat-icon>confirmation_number</mat-icon>
+        <div [ngClass]="expandNavClassList">
+            <span>PNR Status</span>
+        </div>
+    </div>
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('all-trains')">
+        <mat-icon>border_all</mat-icon>
+        <div [ngClass]="expandNavClassList">
+            <span>All trains</span>
+        </div>
+    </div>
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('train-info')">
+        <mat-icon>search</mat-icon>
+        <div [ngClass]="expandNavClassList">
+            <span>Train Info</span>
+        </div>
+    </div>
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-station')">
+        <mat-icon>gps_fixed</mat-icon>
+        <div [ngClass]="expandNavClassList">
+            <span>Live Station</span>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,30 @@
+<main>
+    <div class="main-root train-info-srch-root">
+        <input [(ngModel)]="trainNo" type="text" name="st-code" id="st-code" value="" placeholder="Enter Train No." [required]="true" />
+        <button (click)="fetchTrainInfo()">Find</button>
+    </div>
+    <div class="l-stat-result">
+        <table>
+            <thead>
+                <tr>
+                    <th>Train No.</th>
+                    <th>Train Name</th>
+                    <th>Source Code</th>
+                    <th>Source Arrival</th>
+                    <th>Destination Code</th>
+                    <th>Destination Arrival</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{result.TrainNo}}</td>
+                    <td>{{result.TrainName}}</td>
+                    <td>{{result.Source.Code}}</td>
+                    <td>{{result.Source.Arrival}}</td>
+                    <td>{{result.Destination.Code}}</td>
+                    <td>{{result.Destination.Arrival}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
