@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-navbar></app-navbar>
+<app-header (menuOpenEvent)="isMenuOpen=$event"></app-header>
+<app-navbar [isNavOpen]="isMenuOpen"></app-navbar>
 
 <router-outlet>
 </router-outlet>

@@ -1,9 +1,12 @@
 <main>
+    <div class="heading">
+        <span>train info</span>
+    </div>
     <div class="main-root train-info-srch-root">
         <input [(ngModel)]="trainNo" type="text" name="st-code" id="st-code" value="" placeholder="Enter Train No." [required]="true" />
         <button (click)="fetchTrainInfo()">Find</button>
     </div>
-    <div class="l-stat-result">
+    <div class="l-stat-result" *ngIf="result.Status!==''">
         <table>
             <thead>
                 <tr>

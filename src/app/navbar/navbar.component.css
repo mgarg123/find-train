@@ -49,3 +49,20 @@ mat-icon {
 mat-icon:hover {
     transform: scale(1.2);
 }
+
+@media(max-width:768px) {
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(120deg, #f857a6, #ff5858);
+    }
+    .nav {}
+    .nav .expand-nav {
+        background: none;
+        display: flex;
+    }
+    mat-icon {
+        padding-left: 30px;
+    }
+}

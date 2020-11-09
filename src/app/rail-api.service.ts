@@ -6,6 +6,7 @@ import { IAllTrainsAtStation } from './models/AllTrainsAtStation';
 import { ILiveStation } from './models/LiveStation';
 import { ITrainInfo } from './models/TrainInfo';
 import { IPnrStatus } from './models/PnrStatus';
+import { IAutocompleteStation } from './models/AutocompleteStation';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,10 @@ export class RailApiService {
   getPnrInfo(pnrNo: string): Observable<IPnrStatus> {
     const url: string = "http://indianrailapi.com/api/v2/PNRCheck/apikey/" + this.apiKey + "/PNRNumber/" + pnrNo + "/"
     return this.http.get<IPnrStatus>(url);
+  }
+
+  getStationAutocomplete(stationKeyword: string): Observable<IAutocompleteStation> {
+    const url = "https://indianrailapi.com/api/v2/AutoCompleteStation/apikey/" + this.apiKey + "/StationCodeOrName/" + stationKeyword + "/"
+    return this.http.get<IAutocompleteStation>(url);
   }
 }

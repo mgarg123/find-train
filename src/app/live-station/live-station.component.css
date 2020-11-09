@@ -10,16 +10,61 @@ main .l-stat-srch-root {
     box-shadow: 1px 1px 3px 1px rgba(221, 5, 95, 0.5);
 }
 
-main>div>input {
-    height: 30px;
-    border: none;
+main div .input-st {
+    width: 30%;
+    position: relative;
     margin: 0px 10px;
+}
+
+main>div>div>input {
+    height: 30px;
+    width: 100%;
+    border: none;
     outline: none;
     border-radius: 10px;
     padding-left: 13px;
     letter-spacing: 0.6px;
     font-weight: 500;
     box-shadow: 1px 0px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+main div .autocomplete {
+    list-style: none;
+    position: absolute;
+    top: 31px;
+    /* left: 5.5px; */
+    width: 100%;
+    z-index: 9999;
+    height: 240px;
+    overflow-y: auto;
+}
+
+.autocomplete li:nth-last-child() {
+    /* border-top-left-radius: 7px;
+    border-top-right-radius: 7px; */
+}
+
+.autocomplete li {
+    /* border: 1px solid grey; */
+    background: #fff;
+    width: 100%;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.autocomplete li span {}
+
+.autocomplete li span:nth-child(1) {
+    /* border: 0.5px solid hotpink; */
+    padding: 4px;
+    width: 30%;
+}
+
+.autocomplete li span:nth-child(2) {
+    text-align: right;
+    float: right;
+    width: 70%;
+    text-transform: capitalize;
 }
 
 input:focus,
@@ -103,4 +148,15 @@ td {
     color: grey;
     padding: 0px 13px;
     cursor: pointer;
+}
+
+@media(max-width:768px) {
+    main div .input-st {
+        width: 100%;
+    }
+    table {
+        display: block;
+        overflow-x: scroll;
+        padding: 5px;
+    }
 }

@@ -1,30 +1,30 @@
-<nav>
-    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-status')">
+<nav [ngStyle]="{width:isNavOpen?'100%':'4.5%',display:screenWidth>768?'block':isNavOpen?'block':'none'}">
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-status')" [style.borderLeft]="selectedNavOption==='live-status' ? '4px solid rgb(95,2,59)':'none'">
         <mat-icon>train</mat-icon>
         <div [ngClass]="expandNavClassList">
             <span>Live Status</span>
         </div>
     </div>
 
-    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('pnr-status')">
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('pnr-status')" [style.borderLeft]="selectedNavOption==='pnr-status' ? '4px solid rgb(95,2,59)':'none'">
         <mat-icon>confirmation_number</mat-icon>
         <div [ngClass]="expandNavClassList">
             <span>PNR Status</span>
         </div>
     </div>
-    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('all-trains')">
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('all-trains')" [style.borderLeft]="selectedNavOption==='all-trains' ? '4px solid rgb(95,2,59)':'none'">
         <mat-icon>border_all</mat-icon>
         <div [ngClass]="expandNavClassList">
             <span>All trains</span>
         </div>
     </div>
-    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('train-info')">
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('train-info')" [style.borderLeft]="selectedNavOption==='train-info' ? '4px solid rgb(95,2,59)':'none'">
         <mat-icon>search</mat-icon>
         <div [ngClass]="expandNavClassList">
             <span>Train Info</span>
         </div>
     </div>
-    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-station')">
+    <div class="nav nav1" (mouseenter)="hoverIn($event)" (mouseleave)="hoverOut($event)" (click)="navigateTo('live-station')" [style.borderLeft]="selectedNavOption==='live-station' ? '4px solid rgb(95,2,59)':'none'">
         <mat-icon>gps_fixed</mat-icon>
         <div [ngClass]="expandNavClassList">
             <span>Live Station</span>

@@ -50,6 +50,7 @@ export class LiveStationComponent implements OnInit {
   public offset: number = 0;
   public limit: number = 5;
   public selectedOffset: number;
+  public autocompleteList: Array<any> = [];
 
   ngOnInit(): void {
   }
@@ -79,7 +80,8 @@ export class LiveStationComponent implements OnInit {
   }
 
 
-  fetchLiveStation() {
+  fetchLiveStation(event: Event) {
+    // console.log("hello live station")
     this._railApiService.getLiveStation(this.stationCode, this.hours).subscribe(data => {
       this.allData = [];
       this.result = [];
@@ -92,6 +94,26 @@ export class LiveStationComponent implements OnInit {
         this.result = this.allData;
       }
       // console.log(this.allData)
-    })
+    });
   }
+
+  fetchStationsAutocomplete(event: Event) {
+    if (this.stationCode.length >= 3) {
+      this._railApiService.getStationAutocomplete(this.stationCode).subscribe(data => {
+        this.autocompleteList = data.Station;
+      });
+    } else {
+      this.autocompleteList = [];
+    }
+  }
+
+  selectStation(stationCode) {
+    this.stationCode = stationCode;
+    this.autocompleteList = [];
+  }
+
+  cancelAutocomplete() {
+    this.autocompleteList = [];
+  }
+
 }

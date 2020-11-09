@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RailUtilsService } from '../rail-utils.service';
 
 @Component({
   selector: 'app-live-status',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LiveStatusComponent implements OnInit {
 
-  constructor() { }
+  public dates = {
+    tom: "",
+    tod: "",
+    yest: "",
+    dBYest: ""
+  }
+  constructor(private _railUtilService: RailUtilsService) {
+    this.dates = _railUtilService.getDatesForLiveStatus();
+    this.runningDate = this.dates.tod;
+  }
 
   public trainNo: string;
-  public runningDate: string = "29";
+  public runningDate: string = "";
 
   ngOnInit(): void {
   }

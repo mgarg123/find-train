@@ -1,13 +1,26 @@
-<main>
-    <div class="main-root l-stat-srch-root">
-        <input [(ngModel)]="stationCode" type="text" name="st-code" id="st-code" value="" placeholder="Enter station code" [required]="true" />
-        <select [(ngModel)]="hours">
-            <option  value="2">2</option>
-            <option value="4">4</option>
-        </select>
-        <button (click)="fetchLiveStation()">Find</button>
+<main (click)="cancelAutocomplete()">
+    <div class="heading">
+        <span>Live Station</span>
     </div>
-    <div class="l-stat-result">
+    <div class="main-root l-stat-srch-root">
+        <div class="input-st">
+            <input [(ngModel)]="stationCode" (ngModelChange)="fetchStationsAutocomplete($event)" type="text" name="st-code" id="st-code" value="" [ngStyle]="{'border-bottom-left-radius':autocompleteList.length>0 ? '0px':'10px','border-bottom-right-radius':autocompleteList.length>0 ? '0px':'10px'}"
+                placeholder="Enter station code" [required]="true" autocomplete="off" />
+            <ul class="autocomplete" *ngIf="autocompleteList.length>0">
+                <li *ngFor="let data of autocompleteList" (click)="selectStation(data.StationCode)">
+                    <span>{{data.StationCode}}</span>
+                    <span>{{data.NameEn}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <select [(ngModel)]="hours">
+            <option  [value]="2">2</option>
+            <option [value]="4">4</option>
+        </select>
+        <button (click)="fetchLiveStation($event)">Find</button>
+    </div>
+    <div class="l-stat-result" *ngIf="result.length>0">
         <table>
             <thead>
                 <tr>

@@ -1,4 +1,6 @@
 <header>
     <div class="logo">FindTrain</div>
-    <div class="navicons"></div>
+    <div class="navicons">
+        <mat-icon (click)="openMenu($event)">{{isMenuOpen?'menu_open':'menu'}}</mat-icon>
+    </div>
 </header>

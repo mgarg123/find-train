@@ -1,9 +1,12 @@
 <main>
+    <div class="heading">
+        <span>pnr Status</span>
+    </div>
     <div class="main-root pnr-info-srch-root">
         <input [(ngModel)]="pnrNo" type="text" name="st-code" id="st-code" value="" placeholder="Enter PNR No." [required]="true" />
         <button (click)="fetchPnrInfo()">Find</button>
     </div>
-    <div class="l-stat-result">
+    <div class="l-stat-result" *ngIf="result.PnrNumber!==''">
         <div>
             <table>
                 <thead>
@@ -32,7 +35,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div *ngIf="result.PnrNumber!==''">
             <table>
                 <thead>
                     <tr>

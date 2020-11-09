@@ -15,6 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TrainsStationComponent } from './trains-station/trains-station.component';
 import { TrainInfoComponent } from './train-info/train-info.component';
+import { RailApiService } from './rail-api.service';
+import { RailUtilsService } from './rail-utils.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,9 +38,13 @@ import { TrainInfoComponent } from './train-info/train-info.component';
     NoopAnimationsModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    RailApiService,
+    RailUtilsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

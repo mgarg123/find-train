@@ -1,9 +1,12 @@
 <main>
+    <div class="heading">
+        <span>All Trains At Station</span>
+    </div>
     <div class="main-root all-trains-srch-root">
         <input [(ngModel)]="stationCode" type="text" name="st-code" id="st-code" value="" placeholder="Enter station code" [required]="true" />
         <button (click)="fetchAllTrains()">Find</button>
     </div>
-    <div class="l-stat-result">
+    <div class="l-stat-result" *ngIf="result.length>0">
         <table>
             <thead>
                 <tr>
